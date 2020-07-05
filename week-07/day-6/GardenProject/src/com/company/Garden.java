@@ -3,55 +3,33 @@ package com.company;
 import java.util.ArrayList;
 
 public class Garden {
+    ArrayList<Plants> plants = new ArrayList<>();
+    int plantsNeedWater = 0;
 
-    String color;
-    int waterAmount;
-    ArrayList<Trees> trees;
-    ArrayList<Flowers> flowers;
-
-    public Garden(String color, int waterAmount) {
-        this.color = color;
-        this.waterAmount = waterAmount;
-        this.flowers= new ArrayList<>();
-        this.trees = new ArrayList<>();
-    }
-    public Garden(){
-        this("bad",100);
+    public Garden() {
     }
 
-    public void addTree(Trees tree){
-        this.trees.add(tree);
+    public void addPlant (Plants plants){
+        this.plants.add(plants);
     }
-    public void addFlower(Flowers flower){
-        this.flowers.add(flower);
-    }
-
 
     public void addWater(int waterAmountAdd){
         System.out.println("watering with " + waterAmountAdd);
-        for (Trees strom: trees){
-            if (strom.needWater())
-            strom.addWater(waterAmountAdd);
+        for (Plants plant: plants) {
+            if (plant.plantNeedsWater())
+                plantsNeedWater++;
         }
-        for (Flowers kytka: flowers) {
-            if (kytka.needWater()) {
-                kytka.addWater(waterAmountAdd);
-            }
+        waterAmountAdd = (waterAmountAdd/plantsNeedWater);
+        for (Plants plant: plants){
+            if (plant.plantNeedsWater())
+            plant.addWater((waterAmountAdd));
         }
     }
-
-    public void printWaterStatus(){
-        
-        for (Trees strom: trees){
-            strom.treeNeedsWater();
+    public void waterStatus(){
+        for (Plants plant: plants) {
+            plant.needsWater();
         }
-        for (Flowers kytka: flowers) {
-            kytka.flowerNeedsWater();
-
-        }
-        }
-
-
+    }
 
    }
 

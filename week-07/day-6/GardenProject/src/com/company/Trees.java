@@ -1,10 +1,8 @@
 package com.company;
 
-import com.sun.source.tree.Tree;
-
 import java.util.ArrayList;
 
-public class Trees extends Garden {
+public class Trees extends Plants {
     int criticalWaterAmount;
 
     Trees (String color, int waterAmount){
@@ -12,30 +10,22 @@ public class Trees extends Garden {
         this.criticalWaterAmount = 10;
     }
 
-    public void treeNeedsWater (){
+    public void needsWater (){
 
         if(waterAmount<criticalWaterAmount){
-            System.out.println(super.color + " tree needs water.");
+            System.out.println(color + " tree needs water.");
         } else {
-            System.out.println(super.color + " tree doesn't need water.");
+            System.out.println(color + " tree doesn't need water.");
         }
 
     }
 
-    public boolean needWater(){
+    public boolean plantNeedsWater(){
         return waterAmount<criticalWaterAmount;
     }
-    public void print(){
-
-            System.out.println(super.color);
-
-        }
 
         public void addWater (int waterAmountAdd){
-
             waterAmount = (int) (waterAmount+(waterAmountAdd*0.4));
-
-
         }
     }
 
