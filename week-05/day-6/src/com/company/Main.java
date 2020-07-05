@@ -21,6 +21,7 @@ public class Main {
         Sharpie sharpie = new Sharpie("blue", (float) 6.3);
         sharpie.use();
         sharpie.use();
+        sharpie.use();
         sharpie.print();
 
 
