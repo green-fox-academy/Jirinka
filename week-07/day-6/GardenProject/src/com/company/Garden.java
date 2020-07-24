@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Garden {
     ArrayList<Plants> plants = new ArrayList<>();
-    int plantsNeedWater = 0;
 
     public Garden() {
     }
@@ -14,6 +13,7 @@ public class Garden {
     }
 
     public void addWater(int waterAmountAdd){
+        int plantsNeedWater = 0;
         System.out.println("watering with " + waterAmountAdd);
         for (Plants plant: plants) {
             if (plant.plantNeedsWater())
