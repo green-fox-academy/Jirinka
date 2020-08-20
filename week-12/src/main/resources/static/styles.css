@@ -26,4 +26,11 @@ h2{
     padding: 0px;
     color: rgba(64,180,58,1);
 }
-
+#searchField{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#searchButton{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

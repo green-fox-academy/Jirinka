@@ -29,7 +29,7 @@ public class ShopItemsController {
     @GetMapping("/contains-fresh")
     public String containsFresh(Model model){
         model.addAttribute("items", webShop.getFreshItems());
-        return "homePage";
+        return "noHomePage";
     }
     @GetMapping("/average")
     public String average(Model model){
