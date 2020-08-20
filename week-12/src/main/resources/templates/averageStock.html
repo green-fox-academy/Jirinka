@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Web Shop</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<h1>Pizza Web Shop</h1>
+<a th:href="@{/only-available}"><button type="button" class="btn btn-success">Only available</button></a>
+<a th:href="@{/cheapest-first}"><button type="button" class="btn btn-light">Cheapest first</button></a>
+<a th:href="@{/contains-fresh}"><button type="button" class="btn btn-danger">Contains "fresh"</button></a>
+<a th:href="@{/average}"><button type="button" class="btn btn-success">Average stock</button></a>
+<a th:href="@{/maximum}"><button type="button" class="btn btn-light">Most expensive available</button></a>
+
+<h3 th:text="|Average on stock: ${average}|"></h3>
+</body>
+</html>

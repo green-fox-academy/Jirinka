@@ -1,0 +1,34 @@
+table {
+    font-family: 'Thasadith', sans-serif;
+    border-collapse: collapse;
+    background-color: white;
+    margin: 50px;
+    border-radius: 0.3em;
+    overflow: hidden;
+}
+
+th {
+    background-color: black;
+    font-weight: 500;
+    text-align: left;
+    padding: 10px 100px 10px 10px;
+    font-size: 30px;
+    border-bottom: 4px solid grey;
+    color: rgb(240, 238, 238);
+}
+
+td {
+    padding: 10px;
+    border: 1px solid grey;
+    color: rgb(110, 110, 110);
+    font-weight: 500;
+    font-size: 22px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(223, 219, 219);
+}
+
+body {
+    background-color: rgb(42, 42, 255);
+}
