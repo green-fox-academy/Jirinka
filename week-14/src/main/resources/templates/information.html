@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Information about the fox</title>
+</head>
+<body>
+<ul>
+    <li>Information</li>
+</ul>
+<img src="greenfox.png">
+<p th:text="|This is ${fox.getName()} and drinks ${fox.getDrink()}|"></p>
+
+</body>
+</html>

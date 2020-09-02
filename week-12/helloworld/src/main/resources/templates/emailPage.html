@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+       lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dependency</title>
+</head>
+<body>
+
+<p th:if="${valid}" style="color:green" th:text="|${emailAddress} is valid|"></p>
+<p th:unless="${valid}" style="color: darkred" th:text="|${emailAddress} is not valid|"></p>
+
+</body>
+</html>

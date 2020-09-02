@@ -27,8 +27,8 @@ h2{
     color: rgba(64,180,58,1);
 }
 #searchField{
-    margin-top: 10px;
     margin-bottom: 10px;
+    width: 15%;
 }
 #searchButton{
     margin-top: 10px;
