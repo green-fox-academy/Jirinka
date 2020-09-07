@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<li><a th:href="'/?name=' + ${fox.getName()}">Information</a> </li>
+<li ><a th:href="'/nutritionStore?name=' + ${fox.getName()}">Nutrition store</a></li>
+
+<form th:action="'/nutritionStore?name=' + ${fox.getName()}" method="POST">
+<label>Drink: </label>
+<select name="drink" id="drink">
+    <option th:each="drink : ${T(project.foxclub.Model.Drinks).values()}"
+            th:value="${drink}"
+            th:text="${drink}"
+            th:selected="${fox.getDrink().equals(drink)}">
+    </option>
+</select>
+
+<label>Food: </label>
+
+<select name="food" id="food">
+    <option th:each="food : ${T(project.foxclub.Model.Food).values()}"
+            th:value="${food}"
+            th:text="${food}"
+            th:selected="${fox.getFood().equals(food)}">
+    </option>
+</select>
+    <button type="submit">Change</button>
+</form>
+</body>
+</html>

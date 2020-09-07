@@ -5,11 +5,19 @@
     <title>Information about the fox</title>
 </head>
 <body>
+<li><a th:href="'/nutritionStore?name=' + ${fox.getName()}">Information</a> </li>
+<li ><a th:href="'/nutritionStore?name=' + ${fox.getName()}">Nutrition store</a></li>
 <ul>
     <li>Information</li>
 </ul>
 <img src="greenfox.png">
-<p th:text="|This is ${fox.getName()} and drinks ${fox.getDrink()}|"></p>
+<p th:text="|This is Mr. ${fox.getName()}. Currently livin on ${fox.getFood()} and ${fox.getDrink()}.  He knows ${fox.getTricks().size()} tricks.|"></p>
 
+<h1>Known tricks</h1>
+<p th:if="${fox.getTricks().size()} == 0">You dont know any tricks yet. Go and learn some!</p>
+
+<ul th:if="${fox.getTricks().size()}> 0">
+    <li th:each ="trick : ${fox.getTricks()}" th:text="${trick}"></li>
+</ul>
 </body>
 </html>
