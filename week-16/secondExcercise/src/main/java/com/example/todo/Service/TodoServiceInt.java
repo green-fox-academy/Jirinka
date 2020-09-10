@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface TodoServiceInt {
     List<Todo> listAll();
-    List<Todo> listOfDone(boolean state);
+    List<Todo> listOfDone(boolean isDone);
 }

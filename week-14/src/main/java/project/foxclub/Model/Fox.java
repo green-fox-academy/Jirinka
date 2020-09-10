@@ -1,7 +1,9 @@
 package project.foxclub.Model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Fox {
 
@@ -63,4 +65,8 @@ public class Fox {
        return tricks.contains(trick);
     }
 
+    public List<Trick> getNotLearnedTricks(){
+       return Arrays.stream(Trick.values()).collect(Collectors.toList());//filter(trick -> !tricks.contains(trick)).collect(Collectors.toList());
+
+    }
 }

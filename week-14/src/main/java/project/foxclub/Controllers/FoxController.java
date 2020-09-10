@@ -1,6 +1,8 @@
 package project.foxclub.Controllers;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +25,12 @@ public class FoxController {
     fox.setDrink(drink);
     fox.setFood(food);
     return "redirect:/?name=" + name;
+    }
 
-
+    @GetMapping("/trickCenter")
+    public String trickCenter(Model model, @RequestParam String name){
+        model.addAttribute("fox", foxService.getFox(name));
+        model.addAttribute("tricksToLearn", foxService.getNotLearnedTricks(name));
+    return "trick-center";
     }
 }
