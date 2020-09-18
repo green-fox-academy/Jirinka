@@ -20,6 +20,6 @@ public class ListingtodosApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        todoRepository.save(new Todo("Feed the dog", true, false));
+
     }
 }

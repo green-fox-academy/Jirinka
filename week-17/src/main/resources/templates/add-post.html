@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new post</title>
+</head>
+<body>
+<h1>Submit a new post</h1>
+
+<!--/*@thymesVar id="post" type="reddit.redditproject.Model.Post"*/-->
+<form action="/submit" th:object="${post}" method="post">
+    <label>Title</label>
+    <input type="text" name="title"><br>
+
+    <label>URl</label>
+    <input type="text" name="url"><br>
+    <button type="submit" value="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

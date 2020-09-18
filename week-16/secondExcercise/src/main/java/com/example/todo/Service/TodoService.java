@@ -28,4 +28,26 @@ public class TodoService implements TodoServiceInt{
         return todoRepository.findAll().stream().filter(done -> done.isDone()==IsDone).collect(Collectors.toList());
     }
 
+    @Override
+    public Todo addNew(Todo todo) {
+        return todoRepository.save(todo);
+    }
+
+    @Override
+    public void deleteTodo(Long id) {
+        todoRepository.delete(todoRepository.findById(id).get());
+    }
+
+
+    @Override
+    public void updateTodo(Todo todo) {
+        todoRepository.save(todo);
+    }
+
+    @Override
+    public Todo getById(long id) {
+        return todoRepository.findById(id).get();
+    }
+
+
 }
