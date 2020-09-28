@@ -8,35 +8,37 @@ import org.springframework.ui.Model;
 
 @Controller
 public class PostController {
-    private final postService postService;
+    private final postService PostService;
 
-    public PostController(reddit.redditproject.Service.postService postService) {
-        this.postService = postService;
+    public PostController(postService PostService) {
+        this.PostService = PostService;
     }
 
-    @GetMapping("/")
-    public String listAll(Model model){
-        model.addAttribute("list", postService.listAll());
+
+    @GetMapping({"/", "/{userName}/"})
+    public String listAll(Model model, @PathVariable (required = false) String userName){
+        model.addAttribute("list", PostService.listAll());
         return "main-page";
     }
-    @GetMapping("/submit")
-    public String addNewPost(){
+    @GetMapping({"/submit", "/{userName}/submit"})
+    public String addNewPost(@PathVariable (required = false) String userName){
         return "add-post";
     }
-    @PostMapping("/submit")
-    public String addNew(@ModelAttribute (name = "post") Post post){
-        postService.addPost(post);
-        return "redirect:/";
+
+    @PostMapping("/{userName}/submit")
+    public String addNew(@ModelAttribute (name = "post") Post post,@PathVariable (required = false) String userName){
+        PostService.addPost(post,userName);
+        return "redirect:/" + userName + "/";
     }
     @GetMapping("/{id}/vote")
     public String vote(@RequestParam (name = "upVote", required = false) boolean upVote,
                        @RequestParam (name = "downVote", required = false) boolean downVote,
                        @PathVariable long id){
         if (upVote){
-            postService.votePlus(id);
+            PostService.votePlus(id);
         }
         else {
-            postService.voteMinus(id);
+            PostService.voteMinus(id);
         }
         return "redirect:/";
     }

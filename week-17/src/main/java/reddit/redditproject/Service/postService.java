@@ -6,8 +6,9 @@ import java.util.List;
 
 public interface postService {
     List<Post> listAll();
-    void addPost(Post post);
+    Post addPost(Post post, String userName);
     void votePlus(long id);
     void voteMinus(long id);
+    String getCurrentTimeUsingDate();
 
 }

@@ -1,20 +1,12 @@
 package reddit.redditproject.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 public class Post {
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -23,11 +15,38 @@ public class Post {
     private String url;
     private int votes;
 
-    public Post() { }
+
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date time;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
+    public Post() {
+        this.time= new Date();
+    }
 
     public Post(String title, String url) {
         this.title = title;
         this.url = url;
+        this.time= new Date();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -54,5 +73,13 @@ public class Post {
         this.votes = votes;
     }
 
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
 }

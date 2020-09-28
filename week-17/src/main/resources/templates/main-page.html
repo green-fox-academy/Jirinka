@@ -5,11 +5,12 @@
     <title>Reddit</title>
 </head>
 <body>
-
+<h2><a th:href="@{./submit}">Add post</a></h2>
+<h2><a th:href="@{/login}">Login</a></h2>
 <h1>Trending posts</h1>
 <table>
 
-    <tr th:each="post : ${list}">
+    <tr th:each="post : ${list}" th:object="${post}">
         <td th:text="${post.getVotes()}"></td>
 
             <td><a th:href="'/' + ${post.getId()} + '/vote?upVote=true'">+</a></td>
@@ -17,6 +18,8 @@
 
 
         <td><a th:href="${post.getUrl()}" target="_blank" th:text="${post.getTitle()}"></a></td>
+        <td th:text="${post.getTime()}"></td>
+        <td th:text="*{user != null}? *{user.userName}: 'anonymous'"></td>
     </tr>
 
 </table>

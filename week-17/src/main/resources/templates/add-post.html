@@ -8,7 +8,7 @@
 <h1>Submit a new post</h1>
 
 <!--/*@thymesVar id="post" type="reddit.redditproject.Model.Post"*/-->
-<form action="/submit" th:object="${post}" method="post">
+<form action="./submit" th:object="${post}" method="post">
     <label>Title</label>
     <input type="text" name="title"><br>
 

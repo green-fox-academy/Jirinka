@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+
+<!--/*@thymesVar id="user" type="com.greenfox.Model.User"*/-->
+<!--th:object="${user}" -->
+<form action="/login"  method="post">
+
+    <label>Username: </label><input type="text"
+                                    name="name"><br>
+
+    <label>Password: </label><input type="password"
+                                    name="password">
+
+    <button type="submit" value="submit">Login</button>
+</form>
+
+<!--/*@thymesVar id="badPassword" type="com.greenfox.controller.UserController"*/-->
+<div th:if="${badPassword} == true">bad password</div>
+<!--<div th:unless="${badPassword} == true "> nothing </div>-->
+
+
+</body>
+</html>
