@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spaceship transporter</title>
+</head>
+<body>
+<h1>Spaceship transporter</h1>
+
+<table>
+    <tr>
+        <th>Planet</th>
+        <th>Population</th>
+        <th>Spaceship location</th>
+        <th>People on ship</th>
+    </tr>
+    <tr th:each="planet : ${planets}">
+        <td th:text="${planet.getName()}"></td>
+        <td th:text="${planet.getPopulation()}"></td>
+
+        <td>
+            <span th:if="${planet.getSpaceship()} != null">
+
+                <a th:href="|/toplanet/${planet.getId()}|">&#8592; to planet</a>
+                <a th:href="|/toship/${planet.getId()}|">to ship &#8594;</a>
+
+            </span>
+
+            <span th:unless="${planet.getSpaceship()} != null">
+            <!--<a th:href="|movehere/${planet.getId()}|">-->
+               <form th:action="'/movehere/'+${planet.getId()}" method="post" >
+                   <input type="submit" value="move here">
+                </form>
+            </span>
+        </td>
+
+        <td th:if="${planet.getSpaceship()} != null" th:text="${planet.getSpaceship().getUtilization()}"></td>
+        <td th:unless="${planet.getSpaceship()} != null" th:text="'-'"></td>
+    </tr>
+
+
+</table>
+
+</body>
+</html>

@@ -22,11 +22,14 @@ public class UserController {
     //@RequestParam (value = "username") String userName
 
     @PostMapping("/login")
-    public String log(String name, String password){
+    public String log(String name, String password, Model model){
         if (UserService.userExists(name)){
             if(UserService.checkPassword(name, password)){
                 return "redirect:/" + name + "/";
-            } else return "redirect:/login";
+            } else {
+                model.addAttribute("error", "Bad Password");
+                return "login";
+            }
         } else return "redirect:/register";
     }
     @GetMapping("/register")
