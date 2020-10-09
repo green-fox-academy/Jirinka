@@ -2,6 +2,21 @@ package com.example.frontend.Model;
 
 public class Number {
 
+    int received;
+    int result;
+    String error;
+
+
+    public Number(String error) {
+        this.error = "Please provide an input!";
+    }
+
+    public Number(int number) {
+        this.received = number;
+        this.result = number * 2;
+
+    }
+
     public int getReceived() {
         return received;
     }
@@ -18,15 +33,6 @@ public class Number {
         this.result = result;
     }
 
-    int received;
-    int result;
 
-    public Number() {
-    }
 
-    public Number(int number) {
-        this.received = number;
-        this.result = number * 2;
-
-    }
 }

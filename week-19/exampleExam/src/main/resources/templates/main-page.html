@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--/*@thymesVar id="error" type="com.greenfox.exampleexam.Controller.MainController"*/-->
+<div th:if="${usedAlias} !=null" th:text="${usedAlias}"></div>
+<div th:if="${success} !=null" th:text="${success}"></div>
+<form action="/save-link" method="post">
+
+    <label>URL</label>
+    <input type="text" name="url"><br>
+    <label>Alias</label>
+    <input type="text" name="alias"><br>
+    <button type="submit" value="submit">Submit</button>
+</form>
+
+</body>
+</html>
