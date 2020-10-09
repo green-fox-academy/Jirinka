@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary</title>
+</head>
+<body>
+<h1>Green Fox Fashion Web Store</h1>
+<h2>Summary</h2>
+
+<p th:text="${summary}"></p>
+<table>
+    <tr>
+        <th>Item name</th>
+        <th>Manufacturer</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Sub-total price</th>
+    </tr>
+    <tr th:object="${order}">
+        <!--/*@thymesVar id="getName" type="com.example.store.model.Warehouse"*/-->
+        <td th:text="${order.getItemName()}"></td>
+        <td th:text="${order.getManufacturer()}"></td>
+        <td th:text="${order.getCategory()}"></td>
+        <td th:text="${quantity}"></td>
+        <td th:text="${summary}"></td>
+
+        
+    </tr>
+</table>
+<a th:href="@{/shoppingplanner}">Back to main</a>
+
+
+</body>
+</html>

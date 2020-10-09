@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Fox Fashion Web Store</title>
+</head>
+<body>
+<h1>Green Fox Fashion Web Store</h1>
+
+
+<form method="post" action="/shoppingplanner/summary" >
+
+    <label>Name:</label>
+    <select name="name" id="name" >
+        <option th:each="name : ${names}"
+                th:text="${name}"
+                th:value="${name}">
+        </option>
+    </select>
+
+    <label>Size:</label>
+    <select name="size" id="size">
+        <option th:each="size : ${sizes}"
+                th:text="${size}"
+                th:value="${size}">
+        </option>
+    </select>
+
+    <label>Quantity:</label>
+    <input type="number" name="quantity">
+    <button type="submit">GET TOTAL</button>
+</form>
+
+<table>
+    <tr>
+        <th>Item name</th>
+        <th>Manufacturer</th>
+        <th>Category</th>
+        <th>Size</th>
+        <th>Unit price</th>
+    </tr>
+    <tr th:each="item : ${warehouse}">
+        <td th:text="${item.getItemName()}"></td>
+        <td th:text="${item.getManufacturer()}"></td>
+        <td th:text="${item.getCategory()}"></td>
+        <td th:text="${item.getSize()}"></td>
+        <td th:text="${item.getUnitPrice()}"></td>
+    </tr>
+
+
+
+</table>
+
+</body>
+</html>
